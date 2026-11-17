@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#7dd3fc">
+  <title>La grande aventure</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icones/icone-192.png">
+  <link rel="apple-touch-icon" href="icones/icone-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- La toile où tout le jeu est dessiné -->
+  <canvas id="jeu"></canvas>
+
+  <!-- La bulle qui raconte l'histoire (en haut) -->
+  <div id="bulle" class="bulle cache">
+    <p id="texte-bulle"></p>
+    <button id="bouton-repeter" aria-label="Répéter">🔊</button>
+  </div>
+
+  <!-- Bouton pour couper / remettre le son -->
+  <button id="bouton-son" class="bouton-son" aria-label="Son">🔊</button>
+
+  <!-- ===== Écran de départ ===== -->
+  <section id="accueil" class="ecran">
+    <h1>🗺️ La grande aventure</h1>
+
+    <label for="champ-prenom">Comment tu t'appelles ?</label>
+    <input id="champ-prenom" type="text" maxlength="15" placeholder="Ton prénom" autocomplete="off">
+
+    <p>Quel animal veux-tu trouver ?</p>
+    <div id="animaux" class="animaux">
+      <!-- data-animal : le nom que le JavaScript lira pour savoir quel animal est choisi -->
+      <button class="animal" data-animal="ours">🐻<span>Ours</span></button>
+      <button class="animal" data-animal="lion">🦁<span>Lion</span></button>
+      <button class="animal" data-animal="dinosaure">🦖<span>Dinosaure</span></button>
+      <button class="animal" data-animal="dragon">🐉<span>Dragon</span></button>
+    </div>
+
+    <button id="bouton-partir" class="gros-bouton">C'est parti !</button>
+  </section>
+
+  <!-- ===== Écran de fin ===== -->
+  <section id="fin" class="ecran cache">
+    <h2 id="texte-fin"></h2>
+    <button id="bouton-rejouer" class="gros-bouton">🔁 Rejouer</button>
+    <button id="bouton-changer" class="gros-bouton bouton-bleu">🐾 Changer d'animal</button>
+  </section>
+
+  <script src="jeu.js"></script>
+</body>
+</html>
